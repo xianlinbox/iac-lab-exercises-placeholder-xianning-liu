@@ -1,12 +1,9 @@
-terraform {
-  required_providers {
-    aws = {
-      source  = "hashicorp/aws"
-      version = "5.40.0"
-    }
-  }
-}
+resource "aws_vpc" "my_vpc" {
+  cidr_block = "192.168.1.0/25"
+  enable_dns_support = true
+  enable_dns_hostnames = true
 
-provider "aws" {
-  region = "<placeholder:add_your_aws_region>"
+  tags = {
+    Name = "iac-lab-placeholder:xianning-liu"
+  }
 }
