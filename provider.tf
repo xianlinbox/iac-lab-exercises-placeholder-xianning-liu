@@ -9,5 +9,5 @@ terraform {
 
 provider "aws" {
   region  = "ap-southeast-2"
-  profile = "twbeach"  # Replace with your AWS profile name
+  profile = "twbeach"  
 }
