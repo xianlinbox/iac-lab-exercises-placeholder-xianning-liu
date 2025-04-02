@@ -69,3 +69,12 @@ resource "aws_subnet" "secure_subnet_2" {
     Name = format("%s-secure-subnet-2", var.prefix)
   }
 }
+
+resource "aws_subnet" "private_subnet_7" {
+  vpc_id = aws_vpc.iac_lab_vpc.id
+  cidr_block = var.subnet7_cidr
+
+  tags = {
+    Name = format("%s-private-subnet-3", var.prefix)
+  }
+}
