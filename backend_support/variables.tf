@@ -5,6 +5,6 @@ variable "prefix" {
 }
 variable "region" {
   type        = string
-  default = "ap-southeast-2"
+  default = "us-east-2"
   description = "region host the resources"
 }

@@ -10,4 +10,12 @@ terraform {
 provider "aws" {
   region  = var.region
   profile = "twbeach"
+
+  default_tags {
+    tags = {
+      ManagedBy   = "Terraform"
+      Environment = "Dev"
+      Project     = var.prefix
+    }
+  }
 }

@@ -4,41 +4,29 @@ variable "prefix" {
 }
 variable "region" {
   type        = string
+  default     = "us-east-2"
   description = "region host the resources"
 }
 variable "vpc_cidr" {
   type        = string
   description = "VPC CIDR block"
 }
-variable "subnet1_cidr" {
-  type        = string
-  description = "Subnet1 CIDR block"
+
+variable "number_of_public_subnets" {
+  type        = number
+  default     = 2
+  description = "count of public subnets"
 }
 
-variable "subnet2_cidr" {
-  type        = string
-  description = "Subnet2 CIDR block"
+
+variable "number_of_private_subnets" {
+  type        = number
+  default     = 2
+  description = "count of private subnets"
 }
 
-variable "subnet3_cidr" {
-  type        = string
-  description = "Subnet3 CIDR block"
-}
-variable "subnet4_cidr" {
-  type        = string
-  description = "Subnet4 CIDR block"
-}
-
-variable "subnet5_cidr" {
-  type        = string
-  description = "Subnet5 CIDR block"
-}
-
-variable "subnet6_cidr" {
-  type        = string
-  description = "Subnet6 CIDR block"
-}
-variable "subnet7_cidr" {
-  type        = string
-  description = "Subnet6 CIDR block"
+variable "number_of_secure_subnets" {
+  type        = number
+  default     = 2
+  description = "count of secure subnets"
 }
