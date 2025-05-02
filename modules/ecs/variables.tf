@@ -28,4 +28,27 @@ variable "alb_security_group_id" {
   description = "The load balancer security group id"
 }
 
+variable "db_address" {
+  type        = string
+  description = "The db address for the app"
+}
 
+variable "db_name" {
+  type        = string
+  description = "The db name for the app"
+}
+
+variable "db_username" {
+  type        = string
+  description = "The db user for the app"
+}
+
+variable "db_secret_arn" {
+  type        = string
+  description = "The db password"
+}
+
+variable "db_secret_key_id" {
+  type        = string
+  description = "The db password decrypt key"
+}
