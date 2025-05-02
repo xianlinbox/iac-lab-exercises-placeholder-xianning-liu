@@ -44,13 +44,19 @@ resource "aws_lb_listener" "lb_listener" {
 resource "aws_security_group" "lb_sg" {
   name        = "${var.prefix}-lb-sg"
   description = "allow http api call"
-  vpc_id      = module.vpc.default_vpc_id
+  vpc_id      = module.vpc.vpc_id
 
   ingress {
     from_port = 8000
     to_port   = 8000
     protocol  = "tcp"
     self      = true
+  }
+  ingress {
+    from_port   = 80
+    to_port     = 80
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
   }
   egress {
     description = "allow all outbound"
@@ -63,12 +69,4 @@ resource "aws_security_group" "lb_sg" {
   tags = {
     Name = "${var.prefix}-lb-sg"
   }
-}
-
-resource "aws_vpc_security_group_ingress_rule" "allow_api_call" {
-  security_group_id = aws_security_group.lb_sg.id
-  cidr_ipv4         = "0.0.0.0/0"
-  from_port         = 80
-  ip_protocol       = "tcp"
-  to_port           = 80
 }

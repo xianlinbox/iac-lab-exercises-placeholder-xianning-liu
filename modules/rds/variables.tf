@@ -20,7 +20,7 @@ variable "db_name" {
 
 variable "subnet_ids" {
   type        = list(string)
-  description = "Database name"
+  description = "the subnets db can be put in"
 }
 
 variable "allow_security_group_ids" {
