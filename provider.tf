@@ -9,8 +9,6 @@ terraform {
 
 provider "aws" {
   region  = var.region
-  profile = "twbeach"
-
   default_tags {
     tags = {
       ManagedBy   = "Terraform"
