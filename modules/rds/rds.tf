@@ -29,7 +29,7 @@ resource "aws_db_parameter_group" "pg" {
 }
 
 data "aws_secretsmanager_secret" "db" {
-  name = "dev/dbxl"
+  name = "dev/dbx"
 }
 
 data "aws_secretsmanager_secret_version" "db" {

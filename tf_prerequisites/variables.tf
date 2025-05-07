@@ -8,3 +8,9 @@ variable "region" {
   default = "us-east-2"
   description = "region host the resources"
 }
+
+variable "repo_name" {
+  type        = string
+  default = "xianlinbox/iac-lab-exercises-placeholder-xianning-liu"
+  description = "the repo name"
+}
