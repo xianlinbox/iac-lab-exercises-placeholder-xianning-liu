@@ -1,7 +1,9 @@
 name: Deploy Infra
 
-on: workflow_dispatch
-
+on:
+  push:
+    branches:
+      - main
 env:
   AWS_REGION: us-east-2
   IAM_ROLE: arn:aws:iam::160071257600:role/xianning-liu-iac-lab-github-actions-role
