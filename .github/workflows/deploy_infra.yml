@@ -9,8 +9,8 @@ env:
   IAM_ROLE: arn:aws:iam::160071257600:role/xianning-liu-iac-lab-github-actions-role
 
 jobs:
-  deploy:
-    name: Deploy
+  deploy-dev:
+    name: Deploy to Development
     runs-on: ubuntu-latest
     permissions:
       id-token: write
@@ -31,4 +31,16 @@ jobs:
         run: |
           aws sts get-caller-identity
 
-    # Can add extra steps to run Terraform to create the AWS resources
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: "1.11.3"
+
+      - name: Terraform Validate
+        id: validate
+        run: terraform validate -no-color
+
+      - name: Terraform Plan
+        id: plan
+        run: terraform plan --var-file dev.tfvars
+        continue-on-error: false
