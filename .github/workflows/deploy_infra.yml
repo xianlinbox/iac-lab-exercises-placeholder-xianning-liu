@@ -1,9 +1,7 @@
 name: Deploy Infra
 
-on:
-  push:
-    branches:
-      - main
+on: workflow_dispatch
+
 env:
   AWS_REGION: us-east-2
   IAM_ROLE: arn:aws:iam::160071257600:role/xianning-liu-iac-lab-github-actions-role
@@ -46,4 +44,9 @@ jobs:
       - name: Terraform Plan
         id: plan
         run: terraform plan --var-file dev.tfvars
+        continue-on-error: false
+
+      - name: Terraform Apply
+        id: apply
+        run: terraform apply --var-file dev.tfvars --auto-approve
         continue-on-error: false
